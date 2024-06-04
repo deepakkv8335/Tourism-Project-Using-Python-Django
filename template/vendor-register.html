@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>REGISTER</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{% static 'css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ionicons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor.bundle.base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor.bundle.addons.css' %}">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../assets/css/demo_1/style.css">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+    <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+    <link href="//fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <style>
+      body {
+          background-image: linear-gradient(to right, #58adaa, #9652c3);
+          background-size: cover; /* Ensures the image covers the entire background */
+          background-repeat: no-repeat; /* Prevents the image from repeating */
+          background-position: center; /* Centers the image */
+      }
+  </style>
+    <section class=" w3l-header-4 header-sticky">
+      <!--header-->
+      <header id="site-header" class="fixed-top">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-dark stroke">
+            <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+              <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+              
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav ml-lg-5">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index">HOME <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item @@services__active">
+                  <a class="nav-link" href="{% url 'packages' %}">PACKAGES</a>
+                </li>
+                <li class="nav-item @@contact__active">
+                  <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+                </li>
+                <li class="nav-item @@contact__active">
+                  <a class="nav-link" href="{% url 'Login' %}">LOGIN</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        </header>
+      <!--/header-->
+    </section>
+    <div class="container-scroller"style='margin-top:30px'>
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
+          <div class="row w-100">
+            <div class="col-lg-4 mx-auto">
+              <h2 class="text-center mb-4">VENDOR REGISTRATION</h2>
+              <div class="auto-form-wrapper">
+                <form action="{% url 'vendor_register' %}" method="post">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="text" name="username" class="form-control" placeholder="Username">
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+       
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="number" name="phone" class="form-control" placeholder="Phone">
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+       
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="email" name="email" class="form-control" placeholder="Email">
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+       
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="password" name="password" class="form-control" placeholder="New Password">
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+       
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="password" class="form-control" placeholder="Confirm Password">
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+       
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary submit-btn btn-block">REGISTER</button>
+                  </div>
+                  <div class="text-block text-center my-3">
+                    <span class="text-small font-weight-semibold">Already have an account?</span>
+                    <a href="{% url 'Login' %}" class="text-black text-small">LOGIN</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{% static 'js/vendor.bundle.base.js' %}"></script>
+    <script src="{% static 'js/vendor.bundle.addons.js' %}"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="{% static 'js/shared/off-canvas.js' %}"></script>
+    <script src="{% static 'js/shared/misc.js' %}"></script>
+    <!-- endinject -->
+    <script src="../../assets/js/shared/jquery.cookie.js" type="text/javascript"></script>
+  </body>
+</html>

@@ -1,0 +1,287 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SUMMARY</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+    <link href="//fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script> <!-- Common jquery plugin -->
+<!--bootstrap working-->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <title>Order Summary</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+    table {
+        border-collapse: collapse;
+        margin: 10px auto;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        width: 100%; /* Make the table take up full width */
+    }
+
+    th,
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: black;
+        color: white;
+    }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    
+      .rate {
+        float: left;
+        height: 46px;
+        padding: 0 10px;
+      }
+    
+      .rate:not(:checked)>input {
+        position: absolute;
+        top: -9999px;
+      }
+    
+      .rate:not(:checked)>label {
+        float: right;
+        width: 1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 30px;
+        color: #ccc;
+      }
+    
+      .rate:not(:checked)>label:before {
+        content: '★ ';
+      }
+    
+      .rate>input:checked~label {
+        color: #ffc700;
+      }
+    
+      .rate:not(:checked)>label:hover,
+      .rate:not(:checked)>label:hover~label {
+        color: #deb217;
+      }
+    
+      .rate>input:checked+label:hover,
+      .rate>input:checked+label:hover~label,
+      .rate>input:checked~label:hover,
+      .rate>input:checked~label:hover~label,
+      .rate>label:hover~input:checked~label {
+        color: #c59b08;
+      }
+    
+    </style>
+
+  </head>
+  
+<body id="home">
+<section class=" w3l-header-4 header-sticky">
+	<!--header-->
+	<header id="site-header" class="fixed-top">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-dark stroke">
+				<button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+					<span class="navbar-toggler-icon fa icon-close fa-times"></span>
+					
+				</button>
+	  
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav ml-lg-5">
+						<li class="nav-item active">
+							<a class="nav-link" href="{% url 'userHome' %}">HOME <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item @@services__active">
+							<a class="nav-link" href="{% url 'user_packages' %}">PACKAGES</a>
+						</li>
+						<li class="nav-item @@contact__active">
+							<a class="nav-link" href="{% url 'user_about' %}">ABOUT</a>
+						</li>
+						
+<!-- dropdown -->
+            <div class="dropdown">
+              <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="" width="30px" src="../../static/images/prof.png" alt="Profile image"> </a>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-header text-center">
+                  <p class="mb-1 mt-3 font-weight-semibold">{{ User.username }}</p>
+                  <p class="font-weight-light text-muted mb-0">{{ User.email }}</p>
+                </div>
+                <a class="dropdown-item" href="{% url 'edit_userprofile' %}">YOUR PROFILE <span class="badge badge-pill badge-danger"></span><i
+                    class="dropdown-item-icon ti-dashboard"></i></a>
+                
+                <a href="{% url 'Logout' %}" class="dropdown-item">LOGOUT<i class="dropdown-item-icon ti-power-off"></i></a>
+              </div>
+            </div>
+<!-- dropdown -->              
+            </div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	  </header>
+	<!--/header-->
+</section>
+
+  <section>
+
+    <h4 style="text-align: center; margin-top: 100px;">ORDER SUMMARY</h4>
+    <table style="width: 95%;">
+      <tr>
+        <th>VENDOR</th>
+        <th>PACKAGE</th>
+        <th>DESTINATION</th>
+        <th>DATE</th>
+        <th>PRICE</th>
+        <th>ORDER STATUS</th>
+        <th>ADMITS</th>
+<th></th>
+
+      </tr>
+      {% for booking in bookings_data %}
+      <tr>
+        <td>{{ booking.package_id.user_id.username }}</td>
+        <td>{{ booking.package_id.package_name }}</td>
+        <td>{{ booking.package_id.destination }}</td>
+        <td>{{ booking.booking_date }}</td>
+        <td>{{ booking.total_amount }}</td>
+
+        <td style="font-weight: bold;{% if booking.status == 'pending' %}color: orange;{% elif booking.status == 'approved' %}color: blue;{% elif booking.status == 'reject' %}color: red;{% elif booking.status == 'paid' %}color: green;{% endif %}">
+          {{ booking.status }}
+        </td>
+        
+        <td >{{ booking.no_of_people }}</td>
+   
+        <td style="text-align: center;">
+          {% if booking.review %}
+            <svg style="color: #375085;"  data-bs-toggle="collapse" data-bs-target="#bookingDetails{{ booking.id }}" aria-expanded="false" aria-controls="bookingDetails{{ booking.id }}" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"/>
+            </svg>
+       
+        </td>
+            
+            <td>
+              
+            {% endif %}
+          
+          {% if booking.status in "approved" or booking.status in "pending" %}
+          <div class="d-flex" style="gap: 20px;">
+          <form action="{% url 'cancel_booking' booking.id %}" method="post">
+            {% csrf_token %}
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelBooking">
+              Cancel
+            </button>
+            <div class="modal fade" id="cancelBooking" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+              aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <h2 style="text-align: center;">Are you sure?</h2>
+                  </div>
+                  <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Yes</button>
+                  <button type="button" class="btn btn-primary"  data-bs-dismiss="modal">No</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <a href="{% url 'payments' id=booking.id %}"><button type="button"  class="btn btn-success"  data-bs-target="#staticBackdrop">
+            Payment
+          </button></a>
+        </div>
+          {% elif booking.status == "paid" %}
+          <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Review
+          </button> -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Review/Rating</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form class="forms-sample" action="{% url 'add_review' id=booking.id %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label for="exampleTextarea1">Review</label>
+                      <textarea class="form-control" name="review" id="exampleTextarea1" rows="2"></textarea required>
+                    </div>
+                   
+                  
+                  <div class="rate">
+                    <input type="radio" id="star5" name="rate" value="5" />
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4" />
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3" />
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2" />
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1" />
+                    <label for="star1" title="text">1 star</label>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">submit</button>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+          {% elif booking.status == "reject" %}
+
+          {% else %}
+         
+          {% endif %}
+
+
+          </td>
+      
+       
+      </tr>
+      <tr>
+        <td colspan="9" class="collapse" id="bookingDetails{{ booking.id }}">
+          {% if booking.review %}
+          <div style="text-align: center;">
+            <span style="font-size: 15px;color: rgb(0, 0, 0);">{{booking.review}}</span>
+            <div style="color: rgb(233, 136, 10);font-size: 20px;">
+              {% for star_value in "★★★★★"|slice:booking.rating %}
+              <span class="star">&#9733;</span>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+        </td>
+      </tr>
+
+      {% endfor %}
+    </table>
+
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+

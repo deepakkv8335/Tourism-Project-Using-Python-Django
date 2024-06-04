@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>FOCUZ</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main_styles.css' %}">
+    <link href="//fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body id="home">
+<section class=" w3l-header-4 header-sticky">
+	<!--header-->
+	<header id="site-header" class="fixed-top">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-dark stroke">
+				<!-- <h1><a class="navbar-brand" href="index">
+					</span>FOCUZ
+				</a></h1> -->
+				<button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+					<span class="navbar-toggler-icon fa icon-close fa-times"></span>
+					
+				</button>
+	  
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav ml-lg-5">
+						<li class="nav-item active">
+							<a class="nav-link" href="index">HOME <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item @@services__active">
+							<a class="nav-link" href="{% url 'packages' %}">PACKAGES</a>
+						</li>
+						<li class="nav-item @@contact__active">
+							<a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+						</li>
+						<li class="nav-item ">
+              <div style="margin-top: 7px;" class="dropdown">
+                <button class="btn text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  REGISTER
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                  <a class="dropdown-item" href="{% url 'user_register' %}" style="color: #070606c1;">AS USER</a>
+                  <a class="dropdown-item" href="{% url 'vendor_register' %}" style="color: #070606c1;">AS VENDOR</a>
+                </div>
+              </div>
+						</li>
+						<li class="nav-item @@contact__active">
+							<a class="nav-link" href="{% url 'Login' %}">LOGIN</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	  </header>
+	<!--/header-->
+</section>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script> <!-- Common jquery plugin -->
+<!--bootstrap working-->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+{% block content %}
+<section class="w3l-main-slider" id="home">
+</section>
+
+
+
+<section class="w3l-covers-18 ">
+  <div class="covers-main editContent">
+          <div class="intro">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <div class="intro_container">
+                    <div class="row">
+        
+                      <!-- Intro Item -->
+                      <div class="col-lg-4 intro_col">
+                        <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                          <div class="intro_icon"><img src="{% static 'images/wallet.png' %}" alt=""></div>
+                          <div class="intro_content">
+                            <div class="intro_title">Affordable Price</div>
+                            
+                          </div>
+                        </div>
+                      </div>
+        
+                      <!-- Intro Item -->
+                      <div class="col-lg-4 intro_col">
+                        <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                          <div class="intro_icon"><img src="{% static 'images/beach.png' %}" alt=""></div>
+                          <div class="intro_content">
+                            <div class="intro_title">Famous Destinations</div>
+                            
+                          </div>
+                        </div>
+                      </div>
+        
+                      <!-- Intro Item -->
+                      <div class="col-lg-4 intro_col">
+                        <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                          <div class="intro_icon"><img src="{% static 'images/support.png' %}" alt=""></div>
+                          <div class="intro_content">
+                            <div class="intro_title">Proper Services</div>
+                            
+                          </div>
+                        </div>
+                      </div>
+        
+                    </div>
+                  </div>
+                </div>		
+              </div>
+            </div>
+          </div>
+        
+          <!-- Destinations -->
+        
+        
+        
+          <!-- Testimonials -->
+        
+        
+          <!-- News -->
+        
+          <div class="news" id="news">
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-8">
+                  <div class="news_container">
+                    
+                    <!-- News Post -->
+                    <div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+                      <div class="news_post_image"><img src="{% static 'images/index1.jpg' %}" alt=""></div>
+                      <div class="news_post_content">
+                        <div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+                          
+                        </div>
+                        
+                        <div class="news_post_category">
+                          <ul>
+                            
+                          </ul>
+                        </div>
+                        <div class="news_post_text">
+                          <p>Travelling has changed drastically thanks to technology. Earlier, people had to take animals to travel to a new place and it would be time-consuming. Now, there are many transport options available that help you reach within no time. Further, the internet has made travelling easier by offering maps, translation apps, food services, cab services, etc. available at our fingertips.</p>
+                        </div>
+                      </div>
+                    </div>
+        
+                    <!-- News Post -->
+                    <div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+                      <div class="news_post_image"><img src="{% static 'images/index2.jpg' %}" alt=""></div>
+                      <div class="news_post_content">
+                        <div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+                          
+                        </div>
+                        
+                        <div class="news_post_category">
+                          <ul>
+                            
+                          </ul>
+                        </div>
+                        <div class="news_post_text">
+                          <p>Traveling alone is one of the most fulfilling and life-changing experiences you can have in life. Solo travel helps you not only explore and understand the world but also learn about yourself. That’s why I have decided to create a list of my favorite travel solo quotes to inspire more and more people to hit the road alone and let the journey lead them to big discoveries and adventures.</p>
+                        </div>
+                      </div>
+                    </div>
+        
+                    <!-- News Post -->
+                      <div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+                      <div class="news_post_image">
+                        <img src="{% static 'images/index3.jpg' %}" alt="">
+                      </div>
+                      <div class="news_post_content">
+                        <div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+                          
+                        </div>
+                        
+                        <div class="news_post_category">
+                          <ul>
+                            
+                        </div>
+                        <div class="news_post_text">
+                          <p>There’s nothing like a relaxing day at the beach to soak up all your worries. Just closing your eyes and imagining the soft sand caressing your toes as gentle waves lap the shore and the sun shines warmly down is enough to bring about a feeling of tranquillity.</p>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+                <!-- News Sidebar -->
+                <div class="col-xl-4">
+                  <div class="travello">
+                    <div class="background_image" style="background-image:url({% static 'images/discount.jpg' %})"></div>
+                    <div class="travello_content">
+                      <div class="travello_content_inner">
+                        <div></div>
+                        <div></div>
+                      </div>
+                    </div>
+                    <div class="travello_container">
+                      <a href="{% url 'packages' %}">
+                        <div class="d-flex flex-column align-items-center justify-content-end">
+                          <span class="travello_title">Discounts upto 40%</span>
+                          <span class="travello_subtitle">Book your trip now</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+  </div>
+</section>
+
+{% endblock %}
+
+<section class="w3l-footer-29-main">
+	<div class="footer-29 py-5 ">
+	  <div class="container">
+		  <div class="grid-col-4 footer-top-29">
+			  <div class="footer-list-29 footer-1">
+				  <h2 class="footer-title-29">CONNECT WITH US</h2>
+  				<ul>
+	  				<li><p><span class="fa fa-map-marker"></span>12/5 BH ROAD<br>
+		  				WAYANAD, KERALA</p></li>
+			  		<li><a href="tel:+91-701-223-2435"><span class="fa fa-phone"></span> +91 7909111111</a></li>
+				  	<li><a href="" class="mail"><span class="fa fa-envelope-open-o"></span> focuz@gmail.com</a></li>
+  				</ul>
+		  	</div>
+			  <div class="footer-list-29 footer-3"></div>
+  			<div class="footer-list-29 footer-3"></div>
+	  		<div class="footer-list-29 footer-3">
+			  </div>
+			</div>
+    </div>
+	</div>
+</section>
+
+
+</body>
+
+</html>
