@@ -32,24 +32,13 @@
 				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 					<ul class="navbar-nav ml-lg-5">
 						<li class="nav-item active">
-							<a class="nav-link" href="index">HOME <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="{% url 'index' %}">HOME <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item @@services__active">
 							<a class="nav-link" href="{% url 'packages' %}">PACKAGES</a>
 						</li>
 						<li class="nav-item @@contact__active">
 							<a class="nav-link" href="{% url 'about' %}">ABOUT</a>
-						</li>
-						<li class="nav-item ">
-              <div style="margin-top: 7px;" class="dropdown">
-                <button class="btn text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  REGISTER
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-                  <a class="dropdown-item" href="{% url 'user_register' %}" style="color: #070606c1;">AS USER</a>
-                  <a class="dropdown-item" href="{% url 'vendor_register' %}" style="color: #070606c1;">AS VENDOR</a>
-                </div>
-              </div>
 						</li>
 						<li class="nav-item @@contact__active">
 							<a class="nav-link" href="{% url 'Login' %}">LOGIN</a>
