@@ -1,0 +1,53 @@
+{% extends 'Vendor/index.html' %}
+{% block content %}
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+            <div class="card-body">
+                <br>
+                <form class="form-sample" action="{% url 'edit_agencyprofile' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">VENDOR NAME</label>
+                            <div class="col-sm-9">
+                            <input type="text" name="username" value="{{User.username}}" class="form-control" />
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">EMAIL</label>
+                            <div class="col-sm-9">
+                            <input type="text" name="email" value="{{User.email}}" class="form-control" />
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">PHONE</label>
+                            <div class="col-sm-9">
+                            <input type="text" name="phone_number" value="{{User.phone_number}}" class="form-control" />
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary btn-fw">
+                            SAVE
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div> 
+{% endblock %}

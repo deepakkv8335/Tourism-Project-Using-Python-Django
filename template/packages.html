@@ -1,0 +1,89 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<!-- <section class="w3l-inner-banner-main">
+    <div class="about-inner services editContent">
+        <div class="container">    -->
+
+        <div class="breadcrumbs-sub">
+            <ul class="breadcrumbs-custom-path">
+                <li class="right-side propClone"><a href="index.html" class="editContent"></a> <p></li>
+                <li class="active editContent"></li>
+            </ul>
+            </div>
+</div>
+</div>
+</section>
+
+<section class="w3l-services-two" id="services">
+    <div class="service-single-page editContent">
+		<form action="{% url 'search_package' %}" method="get">
+			{% csrf_token %}
+					<div class="input-group" style="width: 400px; 
+					margin-left: 35%;
+					margin-top: 15px;">
+				</div>
+			</form>
+				<section class="w3l-covers-18 ">
+                    <div class="covers-main editContent">
+                        <div class="container">
+                          <div class="main-titles-head ">
+                          </div>
+					
+            
+            <div style="display: flex;flex-wrap: wrap;">
+                          {% for package in packages %}
+                            <div class="col-lg-4 col-md-6">
+                              <div class="img-box" style="margin-top: 20px;">
+                                <img src="{{ package.img1.url }}" width="400px" height="200px" alt="package1" class="img-responsive ">
+                                <h5 class="my-2"><a href="{% url 'Login' %}">{{ package.package_name }}</a></h5>
+                                <div class="blog-date"> 
+                                  <p class="pos-date">{{ package.no_of_days}} DAYS & {{ package.no_of_night}} NIGHT</p> <p class="pos-date text-right"></p>
+                                  <p class="pos-date">DESTINATION : 	{{ package.destination}} </p> <p class="pos-date text-right"></p>
+								  <p class="pos-date">EXPIRY : 	{{ package.expiry_date}} </p> <p class="pos-date text-right"></p>
+                                </div>
+                                  <div class="top-gap">
+                                   <h5>₹{{ package.price }}/per person</h5>
+                                    <a href="{% url 'Login' %}" class="icon text-center"><span class="fa fa-chevron-right"></span></a>
+                                  </div>
+                              </div>
+                            </div>
+                          {% endfor %}
+            
+                        </div>
+            
+            
+                          
+                              </div>
+                              </div>
+                            </div> 
+                    </div>
+                </section>
+</section>
+
+{% endblock %}
+<section class="w3l-footer-29-main">
+	<div class="footer-29 py-5 ">
+	  <div class="container">
+		  <div class="grid-col-4 footer-top-29">
+			  <div class="footer-list-29 footer-1">
+				  <h2 class="footer-title-29">CONNECT WITH US</h2>
+  				<ul>
+	  				<li><p><span class="fa fa-map-marker"></span>12/5 BH ROAD<br>
+		  				WAYANAD, KERALA</p></li>
+			  		<li><a href="tel:+91 7909111111"><span class="fa fa-phone"></span> +91 7909111111</a></li>
+				  	<li><a href="" class="mail"><span class="fa fa-envelope-open-o"></span> focuz@gmail.com</a></li>
+  				</ul>
+		  	</div>
+			  <div class="footer-list-29 footer-3"></div>
+  			<div class="footer-list-29 footer-3"></div>
+	  		<div class="footer-list-29 footer-3">
+			  </div>
+			</div>
+    </div>
+	</div>
+</section>
+
+</body>
+
+</html>

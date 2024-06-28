@@ -1,0 +1,129 @@
+{% extends 'Vendor/index.html' %}
+{% block content %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">  
+        <div class="col-12 grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title " style="font-size: xx-large;">EDIT PACKAGE</h4>
+                <form class="form-sample" action="{% url 'edit_package' id=packages.id %}" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">PACKAGE NAME</label>
+                        <div class="col-sm-9">
+                          <input type="text" name="package_name" value="{{packages.package_name}}" class="form-control" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">ORGIN</label>
+                        <div class="col-sm-9">
+                          <input type="text" name="source" value="{{packages.source}}" class="form-control" />
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                    
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">DESTINATION</label>
+                        <div class="col-sm-9">
+                          <input type="text" name="destination" value="{{packages.destination}}" class="form-control" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">NUMBER OF DAYS</label>
+                        <div class="col-sm-9">
+                          <input type="number" name="no_of_days" value="{{packages.no_of_days}}" class="form-control" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">NUMBER OF NIGHTS </label>
+                          <div class="col-sm-9">
+                            <input type="number" name="no_of_night" value="{{packages.no_of_night}}" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">PRICE</label>
+                          <div class="col-sm-9">
+                            <input type="text" name="price" value="{{packages.price}}" class="form-control" />
+                          </div>
+                        </div>
+                      </div> 
+                    </div>
+                  <div class="row">
+                                         
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">DESCRIPTION</label>
+                          <div class="col-sm-9">
+                            <input type="text" name="description" value="{{packages.description}}" class="form-control" />
+                          </div>
+                        </div>
+                      </div> 
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">FIRST IMAGE</label>
+                          <div class="col-sm-9">
+                            <input type="file" name="img1" value="{{packages.img1}}" class="form-control" accept="image/*" />
+                          </div>
+                        </div>
+                      </div>                       
+                    </div>
+                  <div class="row">
+                                        
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">SECOND IMAGE</label>
+                        <div class="col-sm-9">
+                          <input type="file" name="img2" value="{{packages.img2}}" class="form-control" accept="image/*" />
+                        </div>
+                      </div>
+                    </div>  
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">EXPIRY DATE</label>
+                        <div class="col-sm-9">
+                          <input type="date" name="expiry_date" value="{{packages.expiry_date}}" class="form-control" />
+                        </div>
+                      </div>
+                    </div>                      
+                  </div>
+                  
+                  <div class="row">
+                                        
+                  </div>
+                  <div style="margin: auto;width: 100%;text-align: center;margin-top: 20px;">
+                  <button type="submit" class="btn btn-outline-primary btn-fw">
+                    SAVE</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>        
+{% endblock %}

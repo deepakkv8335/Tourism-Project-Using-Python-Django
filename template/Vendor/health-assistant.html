@@ -1,0 +1,113 @@
+{% extends 'Vendor/index.html' %}
+{% block content %}
+  <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+
+        <div class="col-12 grid-margin">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title" style="font-size: xx-large;">ADD HEALTH ASSISTANCE</h4>
+              <form class="form-sample" action="{% url 'health_assistance' %}" method="post">
+                {% csrf_token %}
+                <p class="card-description"> PERSONAL INFO</p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">FIRST NAME</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="first_name" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">LAST NAME</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="last_name" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">GENDER</label>
+                      <div class="col-sm-9">
+                        <select class="form-control" name="gender">
+                          <option>MALE</option>
+                          <option>FEMALE</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">PHONE </label>
+                    <div class="col-sm-9">
+                      <input type="text" name="phone_number" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">QUALIFICATION</label>
+                    <div class="col-sm-9">
+                      <input type="text" name="qualification" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+              
+                <button type="submit" class="btn btn-outline-primary btn-fw">
+                  SUBMIT</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="card-title" style="font-size: xx-large; margin-top: 30px;"> VIEW HEALTH ASSISTANCE</h4>
+        <div class="col-lg-12  grid-margin ">
+          <div class="card">
+            <div class="card-body">
+
+              
+              <table class="table table-hover">
+                <thead>
+                 
+                  <tr>
+                    <th>NAME</th>
+                    <th>GENDER</th>
+                    <th>DOB</th>
+                    <th>PHONE</th>
+                    <th>QUALIFICATION</th>
+                    <th></th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for health_assistant in health_assistants %}
+                  <tr>
+                    <td>{{health_assistant.first_name}}</td>
+                    <td>{{health_assistant.first_name}}</td>
+                    <td>{{health_assistant.gender}}</td>
+                    <td>{{health_assistant.phone_number}}</td>
+                    <td>{{health_assistant.qualification}}</td>
+                    <td><a href="{% url 'delete_healthassistant' id=health_assistant.id %}" style="padding-left: 20px;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                        <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                      </svg>
+                    </a></td>
+                  </tr>
+                  {% endfor %} 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
