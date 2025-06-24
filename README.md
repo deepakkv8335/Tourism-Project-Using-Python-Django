@@ -1,1 +1,1 @@
-# Tourism-Project-Using-Python-Django
+# FOCUZ, A Tourism-Project-Using-Python-Django
